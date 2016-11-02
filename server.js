@@ -24,7 +24,7 @@ app.set('view engine', 'ejs')
 app.set('views', './views')
 
 app.get('/', function (req, res) {
-  res.send('hello, world!')
+  res.render('index')
 })
 
 app.listen(process.env.PORT)
