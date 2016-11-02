@@ -1,0 +1,25 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "A little blog app, for now..",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NewRasputin/blog.git"
+  },
+  "author": "Ras <contact@rasputin.io>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NewRasputin/blog/issues"
+  },
+  "homepage": "https://github.com/NewRasputin/blog#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mongoose": "^4.6.5",
+    "morgan": "^1.7.0"
+  }
+}
