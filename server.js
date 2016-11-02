@@ -14,6 +14,9 @@ app.use(bodyParser.json())
 // use morgan for logging
 app.use(morgan('dev'))
 
+// set public folder
+app.use(express.static('public'))
+
 app.get('/', function (req, res) {
   res.send('hello, world!')
 })
