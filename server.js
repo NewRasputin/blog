@@ -17,6 +17,12 @@ app.use(morgan('dev'))
 // set public folder
 app.use(express.static('public'))
 
+// set view engine
+app.set('view engine', 'ejs')
+
+// set views folder
+app.set('views', './views')
+
 app.get('/', function (req, res) {
   res.send('hello, world!')
 })
