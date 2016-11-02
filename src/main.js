@@ -7,13 +7,11 @@ import Post from './components/Post.vue'
 
 Vue.use(VueRouter)
 
-const routes = [
-  {path: '/', component: Home},
-  {path: '/post', component: Post}
-]
-
 const router = new VueRouter({
-  routes
+  routes: [
+    {path: '/', component: Home},
+    {path: '/post', component: Post}
+  ]
 })
 
 new Vue({
