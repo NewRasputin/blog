@@ -1,6 +1,17 @@
 var express = require('express')
 var app = express()
 
+var mongoose = require('mongoose')
+
+// connect to mongo
+mongoose.connect(process.env.DB_url, function (err) {
+  if (err) {
+    console.log(err)
+  } else {
+    console.log('Connection successfull')
+  }
+})
+
 var bodyParser = require('body-parser')
 
 var morgan = require('morgan')
