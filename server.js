@@ -36,7 +36,7 @@ app.set('view engine', 'ejs')
 // set views folder
 app.set('views', './views')
 
-app.get('/', function (req, res) {
+app.get('*', function (req, res) {
   res.render('index')
 })
 

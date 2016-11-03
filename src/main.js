@@ -10,6 +10,7 @@ Vue.use(VueRouter)
 Vue.use(VueResource)
 
 const router = new VueRouter({
+  mode: 'history',
   routes: [
     {path: '/', component: Home},
     {path: '/post', component: Post}
