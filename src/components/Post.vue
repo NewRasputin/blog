@@ -1,5 +1,5 @@
 <template lang="html">
-  <div >
+  <div>
     <label for="title">Title:</label>
     <input v-model="title" name="title" type="text">
     <label for="body">Body:</label>
@@ -24,6 +24,8 @@ export default {
         body: this.body
       }).then((response) => {
         console.log(response)
+        this.title = ''
+        this.body = ''
       }, (response) => {
         console.log(response)
       })
