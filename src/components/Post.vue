@@ -4,7 +4,7 @@
     <input v-model="title" name="title" type="text">
     <label for="body">Body:</label>
     <textarea v-model="body" name="body"></textarea>
-    <input type="button" value="Submit">
+    <input type="button" v-on:click="submit" value="Submit">
   </div>
 </template>
 
@@ -15,6 +15,18 @@ export default {
     return {
       title: '',
       body: ''
+    }
+  },
+  methods: {
+    submit () {
+      this.$http.post('/post', {
+        title: this.title,
+        body: this.body
+      }).then((response) => {
+        console.log(response)
+      }, (response) => {
+        console.log(response)
+      })
     }
   }
 }
