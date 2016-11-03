@@ -4,6 +4,7 @@ var app = express()
 var mongoose = require('mongoose')
 
 // connect to mongo
+mongoose.Promise = global.Promise
 mongoose.connect(process.env.DB_url, function (err) {
   if (err) {
     console.log(err)
@@ -37,5 +38,35 @@ app.set('views', './views')
 app.get('/', function (req, res) {
   res.render('index')
 })
+
+var postSchema = new mongoose.Schema({
+  title: String,
+  body: String,
+  createdAt: { type: Date, default: Date.now }
+})
+
+var Post = mongoose.model('Posts', postSchema)
+
+app.route('/api/post')
+  .get(function (req, res) {
+    Post.find({}, function (err, posts) {
+      if (err) {
+        console.log(err)
+      } else {
+        res.send(posts)
+      }
+    })
+  })
+  .post(function (req, res) {
+    var newPost = new Post({
+      title: req.body.title,
+      body: req.body.body
+    })
+    newPost.save(function (err) {
+      if (err) {
+        console.log(err)
+      }
+    })
+  })
 
 app.listen(process.env.PORT)
