@@ -1,5 +1,6 @@
 <template lang="html">
   <div>
+    <h3 v-if="!posts[0]">There are no posts to display</h3>
     <div class="posts" v-for="post in posts">
       <h3>{{post.title}} - {{humanDate(post.createdAt)}}</h3>
       <p class="body">{{post.body}}</p>
@@ -17,7 +18,7 @@ export default {
       posts: []
     }
   },
-  created () {
+  mounted () {
     this.$http.get('/api/post')
     .then((response) => {
       this.posts = response.body
@@ -34,12 +35,8 @@ export default {
 </script>
 
 <style lang="css">
-  .posts {
-    width: 90%;
-    margin: 0 auto;
-  }
   .body {
-    width: 98%;
+    width: 90%;
     margin: 0 auto;
   }
 </style>

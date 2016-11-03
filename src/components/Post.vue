@@ -1,9 +1,9 @@
 <template lang="html">
-  <div >
+  <div class="form">
     <label for="title">Title:</label>
-    <input v-model="title" name="title" type="text">
+    <input class="title" v-model="title" name="title" type="text">
     <label for="body">Body:</label>
-    <textarea v-model="body" name="body"></textarea>
+    <textarea class="body" rows="30" v-model="body" name="body"></textarea>
     <input type="button" v-on:click="submit" value="Submit">
   </div>
 </template>
@@ -27,6 +27,8 @@ export default {
       }, (response) => {
         console.log(response)
       })
+      this.$data.title = ''
+      this.$data.body = ''
     }
   }
 }
@@ -35,8 +37,21 @@ export default {
 <style lang="css">
   textarea {
     resize: none;
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
   }
   input, label {
     display: block;
+  }
+  .form {
+    width: 60%;
+    margin: 0 auto;
+  }
+  .title {
+    width: 100%;
+  }
+  .body {
+    width: 100%;
   }
 </style>

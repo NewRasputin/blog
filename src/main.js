@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
 
 import App from './App.vue'
+import NotFound from './components/NotFound.vue'
 import Home from './components/Home.vue'
 import Post from './components/Post.vue'
 
@@ -10,9 +11,11 @@ Vue.use(VueRouter)
 Vue.use(VueResource)
 
 const router = new VueRouter({
+  mode: 'history',
   routes: [
     {path: '/', component: Home},
-    {path: '/post', component: Post}
+    {path: '/post', component: Post},
+    {path: '*', component: NotFound}
   ]
 })
 
