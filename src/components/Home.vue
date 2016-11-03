@@ -17,7 +17,7 @@ export default {
       posts: []
     }
   },
-  created () {
+  mounted () {
     this.$http.get('/api/post')
     .then((response) => {
       this.posts = response.body
