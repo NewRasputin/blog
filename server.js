@@ -39,13 +39,7 @@ app.get('/', function (req, res) {
   res.render('index')
 })
 
-var postSchema = new mongoose.Schema({
-  title: String,
-  body: String,
-  createdAt: { type: Date, default: Date.now }
-})
-
-var Post = mongoose.model('Posts', postSchema)
+var Post = require('./models/post.js')
 
 app.route('/api/post')
   .get(function (req, res) {
