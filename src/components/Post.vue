@@ -24,11 +24,11 @@ export default {
         body: this.body
       }).then((response) => {
         console.log(response)
-        this.title = ''
-        this.body = ''
       }, (response) => {
         console.log(response)
       })
+      this.$data.title = ''
+      this.$data.body = ''
     }
   }
 }
