@@ -1,3 +1,4 @@
+/* eslint-disable */
 var express = require('express')
 var app = express()
 
@@ -39,6 +40,7 @@ app.get('/', function (req, res) {
   res.render('index')
 })
 
+// require Post model
 var Post = require('./models/post.js')
 
 app.route('/api/post')
