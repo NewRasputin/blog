@@ -4,6 +4,7 @@
     <input v-model="title" name="title" type="text">
     <label for="body">Body:</label>
     <textarea v-model="body" name="body"></textarea>
+    <input type="button" value="Submit">
   </div>
 </template>
 

@@ -6,6 +6,7 @@
 
 <script>
 export default {
+  name: 'Home',
   data () {
     return {
       message: 'This is the home page'
