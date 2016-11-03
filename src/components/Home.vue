@@ -34,4 +34,12 @@ export default {
 </script>
 
 <style lang="css">
+  .posts {
+    width: 90%;
+    margin: 0 auto;
+  }
+  .body {
+    width: 98%;
+    margin: 0 auto;
+  }
 </style>
