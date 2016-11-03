@@ -36,10 +36,6 @@ app.set('view engine', 'ejs')
 // set views folder
 app.set('views', './views')
 
-app.get('*', function (req, res) {
-  res.render('index')
-})
-
 // require Post model
 var Post = require('./models/post.js')
 
@@ -64,5 +60,9 @@ app.route('/api/post')
       }
     })
   })
+
+app.get('*', function (req, res) {
+  res.render('index')
+})
 
 app.listen(process.env.PORT)
