@@ -19,7 +19,7 @@ export default {
   },
   methods: {
     submit () {
-      this.$http.post('/post', {
+      this.$http.post('/api/post', {
         title: this.title,
         body: this.body
       }).then((response) => {
