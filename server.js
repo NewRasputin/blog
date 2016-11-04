@@ -41,7 +41,7 @@ app.set('views', './views')
 // login routes
 var login = require('./routes/login.js')
 
-app.use(login)
+app.use('/auth',login)
 
 // api routes
 var api = require('./routes/api.js')
