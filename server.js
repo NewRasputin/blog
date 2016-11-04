@@ -38,60 +38,15 @@ app.set('view engine', 'ejs')
 // set views folder
 app.set('views', './views')
 
-// require User model
-var User = require('./models/user.js')
+// login routes
+var login = require('./routes/login.js')
 
-app.route('/login')
-  .get(function (req, res) {
-    // TODO: what even goes here
-  })
-  .post(function (req, res) {
-    util.log('Finding user...')
-    User.findOne({
-      username: req.body.username
-    })
-      .exec(function (err, user) {
-        if (err) {
-          util.log(err)
-        } else {
-          if (user.password === req.body.password) {
-            util.log('User found!')
-            res.send('Success')
-          } else {
-            res.send('Incorrect pass or no user')
-          }
-        }
-      })
-  })
+app.use(login)
 
-// require Post model
-var Post = require('./models/post.js')
+// api routes
+var api = require('./routes/api.js')
 
-app.route('/api/post')
-  .get(function (req, res) {
-    Post.find({}, function (err, posts) {
-      if (err) {
-        util.log(err)
-      } else {
-        res.send(posts)
-      }
-    })
-  })
-  .post(function (req, res) {
-    util.log('Saving post...')
-    var newPost = new Post({
-      title: req.body.title,
-      body: req.body.body
-    })
-    newPost.save(function (err) {
-      if (err) {
-        util.log(err)
-      } else {
-        util.log('Post saved!')
-        res.send('Success')
-      }
-    })
-  })
+app.use('/api', api)
 
 // catchall route for html5 history
 app.get('*', function (req, res) {
