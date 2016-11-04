@@ -8,7 +8,7 @@ var util = require('util')
 
 // connect to mongo
 mongoose.Promise = global.Promise
-mongoose.connect(process.env.DB_url, function (err) {
+mongoose.connect(process.env.DB_URL, function (err) {
   if (err) {
     console.log(err)
   } else {
