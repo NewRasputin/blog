@@ -36,6 +36,31 @@ app.set('view engine', 'ejs')
 // set views folder
 app.set('views', './views')
 
+// require User model
+var User = require('./models/user.js')
+
+app.route('/login')
+  .get(function (req, res) {
+    // TODO: what even goes here
+  })
+  .post(function (req, res) {
+    User.findOne({
+      username: req.body.username
+    })
+      .exec(function (err, user) {
+        if (err) {
+          console.log(err)
+        } else {
+          console.log(user)
+          if (user.password === req.body.password) {
+            res.send('Success')
+          } else {
+            res.send('Incorrect pass or no user')
+          }
+        }
+      })
+  })
+
 // require Post model
 var Post = require('./models/post.js')
 
@@ -61,6 +86,7 @@ app.route('/api/post')
     })
   })
 
+// catchall route for html5 history
 app.get('*', function (req, res) {
   res.render('index')
 })
