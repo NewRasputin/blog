@@ -12,7 +12,7 @@ mongoose.connect(process.env.DB_url, function (err) {
   if (err) {
     console.log(err)
   } else {
-    util.log('Connection successfull')
+    util.log('Connection to db successfull...')
   }
 })
 
@@ -77,6 +77,7 @@ app.route('/api/post')
     })
   })
   .post(function (req, res) {
+    util.log('Saving post...')
     var newPost = new Post({
       title: req.body.title,
       body: req.body.body
@@ -84,6 +85,8 @@ app.route('/api/post')
     newPost.save(function (err) {
       if (err) {
         console.log(err)
+      } else {
+        util.log('Post saved!')
       }
     })
   })
@@ -93,4 +96,6 @@ app.get('*', function (req, res) {
   res.render('index')
 })
 
-app.listen(process.env.PORT)
+app.listen(process.env.PORT, function () {
+  util.log('Server listening on port '+process.env.PORT+'...')
+})
