@@ -4,13 +4,15 @@ var app = express()
 
 var mongoose = require('mongoose')
 
+var util = require('util')
+
 // connect to mongo
 mongoose.Promise = global.Promise
 mongoose.connect(process.env.DB_url, function (err) {
   if (err) {
     console.log(err)
   } else {
-    console.log('Connection successfull')
+    util.log('Connection successfull')
   }
 })
 
