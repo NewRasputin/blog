@@ -87,6 +87,7 @@ app.route('/api/post')
         console.log(err)
       } else {
         util.log('Post saved!')
+        res.send('Success')
       }
     })
   })
