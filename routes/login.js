@@ -29,5 +29,29 @@ login.route('/login')
         }
       })
   })
+login.route('/signup')
+  .get(function (req, res) {
+    // TODO: what even goes here
+  })
+  .post(function (req, res) {
+    util.log('Saving user...')
+    var newUser = new User({
+      username: req.body.username,
+      password: req.body.password
+    })
+    newUser.save(function (err) {
+      if (err) {
+        util.log(err)
+        if (err.code === 11000) {
+          res.send('Username already taken.')
+        } else {
+          res.send('Failed to save new user.')
+        }
+      } else {
+        util.log('User saved!')
+        res.send('Success')
+      }
+    })
+  })
 
 module.exports = login
