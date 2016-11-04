@@ -10,7 +10,7 @@ var util = require('util')
 mongoose.Promise = global.Promise
 mongoose.connect(process.env.DB_URL, function (err) {
   if (err) {
-    console.log(err)
+    util.log(err)
   } else {
     util.log('Connection to db successfull...')
   }
