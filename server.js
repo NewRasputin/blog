@@ -46,15 +46,16 @@ app.route('/login')
     // TODO: what even goes here
   })
   .post(function (req, res) {
+    util.log('Finding user...')
     User.findOne({
       username: req.body.username
     })
       .exec(function (err, user) {
         if (err) {
-          console.log(err)
+          util.log(err)
         } else {
-          console.log(user)
           if (user.password === req.body.password) {
+            util.log('User found!')
             res.send('Success')
           } else {
             res.send('Incorrect pass or no user')
@@ -70,7 +71,7 @@ app.route('/api/post')
   .get(function (req, res) {
     Post.find({}, function (err, posts) {
       if (err) {
-        console.log(err)
+        util.log(err)
       } else {
         res.send(posts)
       }
@@ -84,7 +85,7 @@ app.route('/api/post')
     })
     newPost.save(function (err) {
       if (err) {
-        console.log(err)
+        util.log(err)
       } else {
         util.log('Post saved!')
         res.send('Success')
