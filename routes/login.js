@@ -1,13 +1,13 @@
 /* eslint-disable */
 var express = require('express')
-var login = express.Router()
+var auth = express.Router()
 
 var util = require('util')
 
 // require User model
 var User = require('../models/user.js')
 
-login.route('/login')
+auth.route('/login')
   .get(function (req, res) {
     // TODO: what even goes here
   })
@@ -31,7 +31,7 @@ login.route('/login')
         }
       })
   })
-login.route('/signup')
+auth.route('/signup')
   .get(function (req, res) {
     // TODO: what even goes here
   })
@@ -56,4 +56,4 @@ login.route('/signup')
     })
   })
 
-module.exports = login
+module.exports = auth
