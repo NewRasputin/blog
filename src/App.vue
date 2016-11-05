@@ -3,7 +3,7 @@
     <div class="navbar">
       <router-link to="/" exact>Home</router-link>
       <router-link to="/post">Post</router-link>
-      <router-link class="left" to="/login">Login</router-link>
+      <router-link class="right" to="/login">Login</router-link>
     </div>
     <div class="container">
       <router-view></router-view>
@@ -36,7 +36,7 @@ a {
 .router-link-active {
   color: green;
 }
-.left {
+.right {
   float: right;
 }
 </style>
