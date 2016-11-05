@@ -17,14 +17,16 @@ login.route('/login')
       username: req.body.username
     })
       .exec(function (err, user) {
-        if (err) {
-          util.log(err)
+        if (user === null) {
+          util.log('No user with that name.')
+          res.status(400).send('No user with that name.')
         } else {
           if (user.password === req.body.password) {
             util.log('User found!')
             res.send('Success')
           } else {
-            res.send('Incorrect pass or no user')
+            util.log('Incorrect password.')
+            res.status(422).send('Incorrect password.')
           }
         }
       })
