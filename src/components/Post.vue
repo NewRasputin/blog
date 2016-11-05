@@ -3,7 +3,6 @@
     <label for="title">Title:</label>
     <input class="title" v-model="title" name="title" type="text">
     <label for="body">Body:</label>
-    <textarea class="body" rows="30" v-model="body" name="body"></textarea>
     <input type="button" v-on:click="submit" value="Submit">
   </div>
 </template>
