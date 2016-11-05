@@ -24,6 +24,9 @@ export default {
         body: this.body
       }).then((response) => {
         console.log(response)
+        if (response.body === 'Success') {
+          this.$router.push('/')
+        }
       }, (response) => {
         console.log(response)
       })
