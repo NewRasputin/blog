@@ -42,9 +42,4 @@ export default {
   h3 {
     margin: 0;
   }
-  .error {
-    background-color: #E8877F;
-    border-radius: 10px;
-    padding: .5em 1em;
-  }
 </style>

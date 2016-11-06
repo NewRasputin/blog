@@ -41,4 +41,9 @@ a {
 .right {
   float: right;
 }
+.error {
+  background-color: #E8877F;
+  border-radius: 10px;
+  padding: .5em 1em;
+}
 </style>
