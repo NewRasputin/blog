@@ -3,7 +3,10 @@
     <div class="navbar">
       <router-link to="/" exact>Home</router-link>
       <router-link to="/post">Post</router-link>
-      <router-link class="right" to="/login">Login</router-link>
+      <div  class="right">
+        <router-link to="/signup">Sign Up</router-link>
+        <router-link to="/login">Login</router-link>
+      </div>
     </div>
     <div class="container">
       <router-view></router-view>
@@ -27,11 +30,10 @@ a {
   width: 90%;
   margin: 0 auto;
 }
-.navbar {
-  width: 100%;
-}
 .router {
   font-family: 'Hind Guntur', sans-serif;
+  width: 90%;
+  margin: 0 auto;
 }
 .router-link-active {
   color: green;
