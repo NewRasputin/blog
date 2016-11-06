@@ -10,7 +10,6 @@
     <label for="retypepassword">Retype Password:</label>
     <input type="text" name="retypepassword" v-model="retypepassword">
     <input type="button" v-on:click="submit" value="Submit">
-    <p v-if="errmsg">{{errmsg}}</p>
   </div>
 </template>
 
