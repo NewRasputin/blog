@@ -18,6 +18,7 @@
   "homepage": "https://github.com/NewRasputin/blog#readme",
   "dependencies": {
     "body-parser": "^1.15.2",
+    "client-sessions": "^0.7.0",
     "ejs": "^2.5.2",
     "express": "^4.14.0",
     "moment": "^2.15.2",

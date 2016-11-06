@@ -4,6 +4,8 @@ var app = express()
 
 var mongoose = require('mongoose')
 
+var clientSessions = require('client-sessions')
+
 var util = require('util')
 
 // connect to mongo
@@ -25,6 +27,11 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 // parse application/json
 app.use(bodyParser.json())
+
+app.use(clientSessions({
+  cookieName: 'session',
+  secret: 'sdfsdh2j4h23497987dfjdhg39dskfgTY(JHF)fsdfGJHJHF'
+}))
 
 // use morgan for logging
 app.use(morgan('dev'))
