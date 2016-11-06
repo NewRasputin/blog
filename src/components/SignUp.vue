@@ -26,7 +26,7 @@ export default {
   },
   computed: {
     passwordsMatch () {
-      // return true is passwords match
+      // return true if passwords match
       return this.password === this.retypepassword
     }
   },
