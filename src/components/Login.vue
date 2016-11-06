@@ -39,7 +39,4 @@ export default {
 </script>
 
 <style lang="css" scoped>
-  h3 {
-    margin: 0;
-  }
 </style>

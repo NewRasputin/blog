@@ -46,4 +46,7 @@ a {
   border-radius: 10px;
   padding: .5em 1em;
 }
+.error h3 {
+  margin: 0;
+}
 </style>
