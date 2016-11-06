@@ -45,7 +45,7 @@ auth.route('/signup')
       if (err) {
         util.log(err)
         if (err.code === 11000) {
-          res.send('Username already taken.')
+          res.status(400).send('Username already taken.')
         } else {
           res.send('Failed to save new user.')
         }
