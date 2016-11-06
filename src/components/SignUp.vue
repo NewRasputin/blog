@@ -27,6 +27,7 @@ export default {
   },
   computed: {
     passwordsMatch () {
+      // return true is passwords match
       return this.password === this.retypepassword
     }
   },
@@ -34,14 +35,17 @@ export default {
     submit () {
       if (this.username) {
         if (this.passwordsMatch) {
+          // post username and pass to signup route
           this.$http.post('/auth/signup', {
             username: this.username,
             password: this.password
           }).then((res) => {
             if (res.body === 'Success') {
+              // redirect to home
               this.$router.push('/')
             }
           }, (res) => {
+            // set errmsg from response
             this.$set(this.$data, 'errmsg', res.body)
           })
         } else {
