@@ -48,10 +48,10 @@ export default {
             this.$set(this.$data, 'errmsg', res.body)
           })
         } else {
-          console.error('Passwords don\'t match');
+          this.$set(this.$data, 'errmsg', 'Passwords don\'t match')
         }
       } else {
-        console.error("Username required")
+        this.$set(this.$data, 'errmsg', 'Username required')
       }
     }
   }
