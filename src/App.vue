@@ -3,7 +3,7 @@
     <div class="navbar">
       <router-link to="/" exact>Home</router-link>
       <router-link to="/post">Post</router-link>
-      <div  class="right">
+      <div class="right">
         <router-link to="/signup">Sign Up</router-link>
         <router-link to="/login">Login</router-link>
       </div>
