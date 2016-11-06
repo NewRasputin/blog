@@ -3,7 +3,7 @@
     <label for="title">Title:</label>
     <input class="title" v-model="title" name="title" type="text">
     <label for="body">Body:</label>
-    <textarea class="body" rows="30" v-model="body" name="body"></textarea>
+    <textarea class="body" rows="15" v-model="body" name="body"></textarea>
     <input type="button" v-on:click="submit" value="Submit">
   </div>
 </template>
@@ -24,6 +24,9 @@ export default {
         body: this.body
       }).then((response) => {
         console.log(response)
+        if (response.body === 'Success') {
+          this.$router.push('/')
+        }
       }, (response) => {
         console.log(response)
       })

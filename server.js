@@ -4,13 +4,15 @@ var app = express()
 
 var mongoose = require('mongoose')
 
+var util = require('util')
+
 // connect to mongo
 mongoose.Promise = global.Promise
-mongoose.connect(process.env.DB_url, function (err) {
+mongoose.connect(process.env.DB_URL, function (err) {
   if (err) {
-    console.log(err)
+    util.log(err)
   } else {
-    console.log('Connection successfull')
+    util.log('Connection to db successfull...')
   }
 })
 
@@ -36,33 +38,21 @@ app.set('view engine', 'ejs')
 // set views folder
 app.set('views', './views')
 
-// require Post model
-var Post = require('./models/post.js')
+// login routes
+var login = require('./routes/login.js')
 
-app.route('/api/post')
-  .get(function (req, res) {
-    Post.find({}, function (err, posts) {
-      if (err) {
-        console.log(err)
-      } else {
-        res.send(posts)
-      }
-    })
-  })
-  .post(function (req, res) {
-    var newPost = new Post({
-      title: req.body.title,
-      body: req.body.body
-    })
-    newPost.save(function (err) {
-      if (err) {
-        console.log(err)
-      }
-    })
-  })
+app.use('/auth',login)
 
+// api routes
+var api = require('./routes/api.js')
+
+app.use('/api', api)
+
+// catchall route for html5 history
 app.get('*', function (req, res) {
   res.render('index')
 })
 
-app.listen(process.env.PORT)
+app.listen(process.env.PORT, function () {
+  util.log('Server listening on port '+process.env.PORT+'...')
+})
