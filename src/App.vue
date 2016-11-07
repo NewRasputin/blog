@@ -5,7 +5,7 @@
       <router-link to="/post">Post</router-link>
       <div class="right">
         <p v-if="name">Logged in as {{name}}</p>
-        <p v-if="name">Logout</p>
+        <input v-if="name" type="button" v-on:click="logout" value="Logout">
         <router-link v-if="!name" to="/login">Login</router-link>
         <router-link v-if="!name" to="/signup">Sign Up</router-link>
       </div>
@@ -19,6 +19,14 @@
 <script>
 export default {
   name: 'App',
+  methods: {
+    logout () {
+      this.$http.get('/auth/logout')
+        .then((res) => {
+          this.$store.commit('setName', '')
+        })
+    }
+  },
   computed: {
     name () {
       return this.$store.state.username
