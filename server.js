@@ -6,6 +6,8 @@ var mongoose = require('mongoose')
 
 var clientSessions = require('client-sessions')
 
+var helmet = require('helmet')
+
 var util = require('util')
 
 // connect to mongo
@@ -21,6 +23,9 @@ mongoose.connect(process.env.DB_URL, function (err) {
 var bodyParser = require('body-parser')
 
 var morgan = require('morgan')
+
+// always use protection
+app.use(helmet())
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
