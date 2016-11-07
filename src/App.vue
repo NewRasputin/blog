@@ -4,8 +4,10 @@
       <router-link to="/" exact>Home</router-link>
       <router-link to="/post">Post</router-link>
       <div class="right">
-        <router-link to="/login">Login</router-link>
-        <router-link to="/signup">Sign Up</router-link>
+        <p v-if="name">Logged in as {{name}}</p>
+        <p v-if="name">Logout</p>
+        <router-link v-if="!name" to="/login">Login</router-link>
+        <router-link v-if="!name" to="/signup">Sign Up</router-link>
       </div>
     </div>
     <div class="container">
@@ -36,6 +38,9 @@ export default {
 a {
   text-decoration: none;
   color: #0000EE;
+}
+p {
+  margin: 0
 }
 .container {
   width: 90%;
