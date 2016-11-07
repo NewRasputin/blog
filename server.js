@@ -30,7 +30,7 @@ app.use(bodyParser.json())
 
 app.use(clientSessions({
   cookieName: 'session',
-  secret: 'sdfsdh2j4h23497987dfjdhg39dskfgTY(JHF)fsdfGJHJHF'
+  secret: process.env.SESH_SECRET
 }))
 
 // use morgan for logging
