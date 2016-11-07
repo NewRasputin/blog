@@ -16,7 +16,18 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  computed: {
+    name () {
+      return this.$store.state.username
+    }
+  },
+  mounted () {
+      this.$http.get('/auth/check')
+        .then((res) => {
+          this.$store.commit('setName', res.body.username)
+        })
+  }
 }
 </script>
 
