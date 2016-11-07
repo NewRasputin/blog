@@ -27,9 +27,8 @@ export default {
         username: this.username,
         password: this.password
       }).then((res) => {
-        if (res.body === 'Success') {
-          this.$router.push('/')
-        }
+        this.$store.commit('setName', res.body.username)
+        this.$router.push('/')
       }, (res) => {
         this.$set(this.$data, 'errmsg', res.body)
       })
