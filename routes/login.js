@@ -67,4 +67,11 @@ auth.post('/signup', function (req, res) {
     })
   })
 
+// called on clicking logout button
+auth.get('/logout', function (req, res) {
+  util.log(req.session.username + ' logged out.')
+  req.session.reset()
+  res.end()
+})
+
 module.exports = auth
