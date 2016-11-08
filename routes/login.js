@@ -2,6 +2,8 @@
 var express = require('express')
 var auth = express.Router()
 
+var bcrypt = require('bcryptjs')
+
 var util = require('util')
 
 // require User model
@@ -28,7 +30,7 @@ auth.post('/login', function (req, res) {
       .exec(function (err, user) {
         if (user) {
           util.log('User found!')
-          if (user.password === req.body.password) {
+          if (bcrypt.compareSync(req.body.password, user.password)) {
             req.session.username = user.username
             util.log('Created session for ' + req.session.username)
             res.send({username: req.session.username})
