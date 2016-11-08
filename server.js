@@ -12,11 +12,11 @@ var util = require('util')
 
 // connect to mongo
 mongoose.Promise = global.Promise
-mongoose.connect(process.env.DB_URL, function (err) {
+mongoose.connect(process.env.MONGO_URL, function (err) {
   if (err) {
     util.log(err)
   } else {
-    util.log('Connection to db successfull...')
+    util.log('Connection to db successfull!')
   }
 })
 
