@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/NewRasputin/blog#readme",
   "dependencies": {
+    "bcryptjs": "^2.3.0",
     "body-parser": "^1.15.2",
     "client-sessions": "^0.7.0",
     "ejs": "^2.5.2",
