@@ -17,15 +17,19 @@
   },
   "homepage": "https://github.com/NewRasputin/blog#readme",
   "dependencies": {
+    "bcryptjs": "^2.3.0",
     "body-parser": "^1.15.2",
+    "client-sessions": "^0.7.0",
     "ejs": "^2.5.2",
     "express": "^4.14.0",
+    "helmet": "^3.1.0",
     "moment": "^2.15.2",
     "mongoose": "^4.6.5",
     "morgan": "^1.7.0",
     "vue": "^2.0.3",
     "vue-resource": "^1.0.3",
-    "vue-router": "^2.0.1"
+    "vue-router": "^2.0.1",
+    "vuex": "^2.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.18.2",

@@ -1,10 +1,15 @@
 <template lang="html">
-  <div class="form">
-    <label for="title">Title:</label>
-    <input class="title" v-model="title" name="title" type="text">
-    <label for="body">Body:</label>
-    <textarea class="body" rows="15" v-model="body" name="body"></textarea>
-    <input type="button" v-on:click="submit" value="Submit">
+  <div>
+    <div v-if="errmsg" class="right error">
+      <h3>{{errmsg}}</h3>
+    </div>
+    <div class="form">
+      <label for="title">Title:</label>
+      <input class="title" v-model="title" name="title" type="text">
+      <label for="body">Body:</label>
+      <textarea class="body" rows="15" v-model="body" name="body"></textarea>
+      <input type="button" v-on:click="submit" value="Submit">
+    </div>
   </div>
 </template>
 
@@ -14,7 +19,8 @@ export default {
   data () {
     return {
       title: '',
-      body: ''
+      body: '',
+      errmsg: ''
     }
   },
   methods: {
@@ -22,13 +28,12 @@ export default {
       this.$http.post('/api/post', {
         title: this.title,
         body: this.body
-      }).then((response) => {
-        console.log(response)
-        if (response.body === 'Success') {
+      }).then((res) => {
+        if (res.body === 'Success') {
           this.$router.push('/')
         }
-      }, (response) => {
-        console.log(response)
+      }, (res) => {
+        this.$set(this.$data, 'errmsg', res.body)
       })
       this.$data.title = ''
       this.$data.body = ''

@@ -4,8 +4,10 @@
       <router-link to="/" exact>Home</router-link>
       <router-link to="/post">Post</router-link>
       <div class="right">
-        <router-link to="/login">Login</router-link>
-        <router-link to="/signup">Sign Up</router-link>
+        <p v-if="name">Logged in as {{name}}</p>
+        <input v-if="name" type="button" v-on:click="logout" value="Logout">
+        <router-link v-if="!name" to="/login">Login</router-link>
+        <router-link v-if="!name" to="/signup">Sign Up</router-link>
       </div>
     </div>
     <div class="container">
@@ -16,7 +18,26 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  methods: {
+    logout () {
+      this.$http.get('/auth/logout')
+        .then((res) => {
+          this.$store.commit('setName', '')
+        })
+    }
+  },
+  computed: {
+    name () {
+      return this.$store.state.username
+    }
+  },
+  mounted () {
+      this.$http.get('/auth/check')
+        .then((res) => {
+          this.$store.commit('setName', res.body.username)
+        })
+  }
 }
 </script>
 
@@ -25,6 +46,9 @@ export default {
 a {
   text-decoration: none;
   color: #0000EE;
+}
+p {
+  margin: 0
 }
 .container {
   width: 90%;
